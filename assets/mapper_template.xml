@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.innovationt.iot.manager.mapper.{{tableName}}.{{tableNameCamel}}Mapper">
+
+	<select id="select{{tableNameCamel}}List" resultType="{{tableNameCamel}}DVO">
+		SELECT
+			{{columns}}
+		FROM {{tableName}}
+	</select>
+
+	<select id="select{{tableNameCamel}}" parameterType="egovMap" resultType="{{tableNameCamel}}DVO">
+		SELECT
+			{{columns}}
+		FROM {{tableName}}
+		WHERE {{keyWhere}}
+	</select>
+
+	<insert id="insert{{tableNameCamel}}" parameterType="{{tableNameCamel}}DVO">
+		INSERT INTO {{tableName}}
+		(
+        	{{columns}}
+		)
+		VALUES
+		(
+            {{varColumns}}
+		)
+	</insert>
+
+	<update id="update{{tableNameCamel}}" parameterType="{{tableNameCamel}}DVO">
+		UPDATE {{tableName}}
+		SET {{updateColumns}}
+		WHERE {{keyWhere}}
+	</update>
+
+	<delete id="delete{{tableNameCamel}}" parameterType="{{tableNameCamel}}DVO">
+		DELETE FROM {{tableName}}
+		WHERE {{keyWhere}}
+	</delete>
+
+</mapper>
